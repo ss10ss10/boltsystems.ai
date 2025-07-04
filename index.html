@@ -7,13 +7,29 @@
     <title>BOLTSYSTEMS - AI Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <!-- Added Nunito font with multiple weights -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 300; /* This makes it Nunito Light */
+        }
+
+        /* Set specific weights for headings and other elements that need to be bolder */
+        h1, h2, h3, h4, h5, h6, 
+        .btn, 
+        nav ul li a,
+        .service-card h3,
+        .submit-btn,
+        .metric-item h3,
+        .section-header h2 {
+            font-weight: 600; /* Semi-bold for headings and important elements */
         }
 
         html {
@@ -57,15 +73,16 @@
             --black: #333333;
         }
 
-        /* Header Styles */
+        /* Header Styles - UPDATED TO TRANSPARENT */
         header {
-            background-color: var(--white);
+            background-color: transparent;
             padding: 20px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: none;
+            transition: all 0.3s ease;
         }
 
         .header-container {
@@ -82,27 +99,33 @@
             text-decoration: none;
         }
 
+        /* Logo styling for transparent header */
         .logo-bol {
-            color: var(--black);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--white);
             font-weight: 700;
+            transition: color 0.3s ease;
         }
 
         .logo-t {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: var(--light-accent);
             font-weight: 700;
         }
 
         .logo-ai {
-            color: var(--light-accent);
             font-family: 'Fira Code', monospace;
+            color: var(--light-accent);
             font-weight: 500;
             letter-spacing: -1px;
         }
 
         .logo-systems {
-            color: #777;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: rgba(255, 255, 255, 0.8);
             font-weight: 400;
             margin-left: 2px;
+            transition: color 0.3s ease;
         }
 
         nav ul {
@@ -114,15 +137,16 @@
             margin-left: 30px;
         }
 
+        /* Updated Navigation Links for transparent header */
         nav ul li a {
             text-decoration: none;
-            color: var(--black);
+            color: var(--white);
             font-weight: 500;
             transition: color 0.3s ease;
         }
 
         nav ul li a:hover {
-            color: var(--primary-color);
+            color: var(--light-accent);
         }
 
         /* Hero Section with Video Background */
@@ -142,14 +166,15 @@
             z-index: 0;
         }
 
-
         .video-background video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* This ensures the video covers the entire container */
+            object-fit: cover;
+            /* Fix for numbers being cut off */
+            object-position: right center;
         }
 
         .video-background .overlay {
@@ -203,6 +228,75 @@
             color: var(--primary-color);
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .why-us-section {
+            background-color: var(--white);
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-weight: 600;
+            margin-bottom: 70px;
+            color: var(--black);
+        }
+
+        .why-us-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .why-us-content {
+            flex: 1;
+        }
+
+        .why-us-item {
+            margin-bottom: 40px;
+        }
+
+        .why-us-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .why-us-item h3 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--black);
+        }
+
+        .why-us-item p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .why-us-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .why-us-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .why-us-container {
+                flex-direction: column;
+            }
+
+            .why-us-image {
+                width: 100%;
+                margin-top: 30px;
+            }
         }
 
         /* Services Section */
@@ -537,7 +631,61 @@
             background-color: rgba(0, 0, 0, 0.1);
             margin: 20px 0;
         }
+            
+            
+        /* The Bolt Edge Section */
+        .bolt-edge-section {
+            background-color: var(--light-bg);
+            padding: 80px 0;
+            text-align: center;
+        }
 
+        .bolt-edge-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .bolt-edge-content h2 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: var(--black);
+        }
+
+        .bolt-edge-icon {
+            margin: 20px auto;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bolt-edge-icon i {
+            font-size: 30px;
+            color: var(--white);
+        }
+
+        .bolt-edge-content p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .bolt-edge-content h2 {
+                font-size: 30px;
+            }
+
+            .bolt-edge-content p {
+                font-size: 16px;
+            }
+        }
         /* About Section */
         #about {
             background-color: var(--white);
@@ -596,134 +744,198 @@
 
         .expertise-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            align-items: center;
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 40px;
             margin-top: 50px;
+            place-items: center; /* This centers items in the grid */
         }
 
         .expertise-item {
-            background-color: rgba(255, 255, 255, 0.7);
+            background-color: rgba(255, 255, 255, 0.8);
             border-radius: 10px;
-            padding: 20px;
+            padding: 25px;
             display: flex;
             justify-content: center;
             align-items: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 120px;
+            height: 120px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
         .expertise-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .expertise-item img {
-            max-width: 100%;
-            height: auto;
+            max-width: 70px;
+            max-height: 70px;
+            object-fit: contain;
         }
 
-        /* Testimonials Section */
-        #testimonials {
-            background-color: var(--white);
-            padding: 80px 0;
-        }
-
-        .testimonials-container {
+        /* Custom logos for technologies without standard icons */
+        .custom-logo {
             display: flex;
-            gap: 50px;
-        }
-
-        .testimonials-content {
-            flex: 1;
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 50px;
-            border-radius: 10px;
-        }
-
-        .testimonials-content h2 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: var(--white);
-        }
-
-        .testimonial-list {
-            list-style: none;
-        }
-
-        .testimonial-item {
-            margin-bottom: 30px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .testimonial-item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .testimonial-item p {
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        .testimonial-author {
-            font-weight: 600;
-        }
-
-        .testimonial-image {
-            flex: 1;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-
-        .testimonial-image img {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .custom-logo i {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .custom-logo p {
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 8px;
+            color: var(--black);
+        }
+
+        .langchain-logo span {
+            font-size: 28px;
+            line-height: 1;
+        }
+
+        .rag-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .rag-logo i {
+            margin: 2px;
+        }
+
+        .api-logo i {
+            font-size: 32px;
+        }
+
+        @media (max-width: 768px) {
+            .expertise-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 20px;
+            }
+
+            .expertise-item {
+                width: 100px;
+                height: 100px;
+                padding: 15px;
+            }
+
+            .expertise-item img {
+                max-width: 60px;
+                max-height: 60px;
+            }
         }
 
         /* Contact Section */
-        #contact {
+        .contact-section {
             background-color: var(--white);
             padding: 100px 0;
+            position: relative;
+            overflow: hidden;
         }
 
-        .contact-container {
+        .contact-bg-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            background-color: var(--accent-color);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+
+        .shape-1 {
+            width: 500px;
+            height: 500px;
+            top: -250px;
+            left: -100px;
+        }
+
+        .shape-2 {
+            width: 300px;
+            height: 300px;
+            bottom: -150px;
+            right: -50px;
+            background-color: var(--light-accent);
+        }
+
+        .shape-3 {
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            right: 30%;
+            background-color: var(--primary-color);
+        }
+
+        .contact-wrapper {
             display: flex;
             gap: 50px;
-            margin-top: 50px;
+            position: relative;
+            z-index: 1;
+            margin-top: 30px;
         }
 
-        .contact-info {
+        .contact-info-column {
             flex: 1;
-            padding-right: 30px;
+            padding-right: 20px;
         }
 
-        .contact-info h3 {
-            font-size: 28px;
-            font-weight: 600;
+        .contact-info-column h3 {
+            font-size: 36px;
+            font-weight: 700;
             margin-bottom: 20px;
             color: var(--black);
         }
 
-        .contact-info p {
+        .highlight {
+            color: var(--primary-color);
+        }
+
+        .contact-intro {
             color: #666;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             font-size: 16px;
             line-height: 1.7;
+            max-width: 450px;
+        }
+
+        .contact-highlight {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 30px;
+            font-size: 18px;
         }
 
         .contact-details {
             margin-bottom: 30px;
         }
 
+        .contact-address h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--black);
+        }
+
         .contact-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .contact-item i {
@@ -736,17 +948,39 @@
         .contact-item p {
             margin-bottom: 0;
             margin-left: 15px;
+            color: #666;
+        }
+
+        .contact-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
         }
 
         .contact-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
             background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
 
-        .contact-form {
+        .contact-social a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form-column {
             flex: 1;
-            background-color: #f9f9ff;
+            background-color: var(--white);
             padding: 40px;
-            border-radius: 10px;
+            border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
@@ -764,11 +998,12 @@
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 12px 15px;
+            padding: 15px;
             border: 1px solid #e0e0e0;
-            border-radius: 5px;
+            border-radius: 10px;
             font-size: 16px;
             transition: all 0.3s ease;
+            background-color: #f9f9ff;
         }
 
         .form-group input:focus,
@@ -780,7 +1015,7 @@
 
         .submit-btn {
             display: inline-block;
-            padding: 14px 30px;
+            padding: 15px 30px;
             background-color: var(--primary-color);
             color: var(--white);
             border: none;
@@ -789,6 +1024,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            width: 100%;
         }
 
         .submit-btn:hover {
@@ -796,21 +1032,21 @@
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-        
+
         .form-status {
             margin-top: 20px;
             padding: 10px 15px;
             border-radius: 5px;
             display: none;
         }
-        
+
         .form-status.success {
             background-color: rgba(40, 167, 69, 0.1);
             border: 1px solid rgba(40, 167, 69, 0.2);
             color: #28a745;
             display: block;
         }
-        
+
         .form-status.error {
             background-color: rgba(220, 53, 69, 0.1);
             border: 1px solid rgba(220, 53, 69, 0.2);
@@ -818,29 +1054,42 @@
             display: block;
         }
 
-        @media (max-width: 1024px) {
-            .contact-container {
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .contact-wrapper {
                 flex-direction: column;
             }
-            
-            .contact-info {
+
+            .contact-info-column {
                 padding-right: 0;
+            }
+
+            .contact-form-column {
+                width: 100%;
             }
         }
 
         @media (max-width: 768px) {
-            .contact-form {
+            .contact-form-column {
                 padding: 30px;
+            }
+
+            .contact-info-column h3 {
+                font-size: 28px;
             }
         }
 
         @media (max-width: 480px) {
-            .contact-form {
+            .contact-form-column {
                 padding: 20px;
             }
-            
+
             .submit-btn {
                 width: 100%;
+            }
+
+            .shape-1, .shape-2, .shape-3 {
+                opacity: 0.05;
             }
         }
 
@@ -1057,6 +1306,27 @@
         </div>
     </section>
 
+    <section id="why-us" class="why-us-section">
+        <div class="container">
+            <h2 class="section-title">Why us?</h2>
+            <div class="why-us-container">
+                <div class="why-us-content">
+                    <div class="why-us-item">
+                        <h3>Innovative AI and ML Solutions</h3>
+                        <p>Cutting-edge technologies tailored to drive intelligent automation, data-driven insights, and smarter decision-making.</p>
+                    </div>
+                    <div class="why-us-item">
+                        <h3>Extensive Deep Learning Processes</h3>
+                        <p>Harnessing advanced neural networks to solve complex problems with high accuracy and scalability.</p>
+                    </div>
+                </div>
+                <div class="why-us-image">
+                    <img src="assets/whyus.jpg" alt="AI and ML Solutions">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
     <section id="services">
         <div class="container">
@@ -1189,7 +1459,22 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <section id="bolt-edge" class="bolt-edge-section">
+        <div class="container">
+            <div class="bolt-edge-container">
+                <div class="bolt-edge-content">
+                    <h2>The Bolt Edge</h2>
+                    <div class="bolt-edge-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <p>Combining deep AI expertise with agile development, we deliver tailored, 
+                    high-performance solutions in machine learning and computer vision, giving 
+                    you a competitive edge through smarter, faster innovation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section
     <section id="about">
         <div class="container">
             <div class="section-header">
@@ -1208,7 +1493,7 @@
             </div>
             <div class="section-divider"></div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Expertise Section -->
     <section id="expertise">
@@ -1217,104 +1502,100 @@
                 <h2>Technical Expertise</h2>
             </div>
             <div class="expertise-grid">
+                <!-- Python -->
                 <div class="expertise-item">
-                    <img src="https://cdn.iconscout.com/icon/free/png-256/free-python-3521655-2945099.png" alt="Python">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
                 </div>
+                <!-- TensorFlow -->
                 <div class="expertise-item">
-                    <img src="https://cdn.iconscout.com/icon/free/png-256/free-tensorflow-2-1175112.png" alt="TensorFlow">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow">
                 </div>
+                <!-- PyTorch -->
                 <div class="expertise-item">
-                    <img src="https://cdn.iconscout.com/icon/free/png-256/free-pytorch-1-1175036.png" alt="PyTorch">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch">
                 </div>
+                <!-- AWS -->
                 <div class="expertise-item">
-                    <img src="https://cdn.iconscout.com/icon/free/png-256/free-aws-1869025-1583149.png" alt="AWS">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS">
                 </div>
+                <!-- Google Cloud -->
                 <div class="expertise-item">
-                    <img src="https://cdn.iconscout.com/icon/free/png-256/free-google-cloud-2038785-1721675.png" alt="Google Cloud">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud">
+                </div>
+                <!-- Django -->
+                <div class="expertise-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django">
+                </div>
+                <!-- FastAPI -->
+                <div class="expertise-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section
-    <section id="testimonials">
-        <div class="container">
-            <div class="testimonials-container">
-                <div class="testimonials-content">
-                    <h2>Hear from our Clients</h2>
-                    <ul class="testimonial-list">
-                        <li class="testimonial-item">
-                            <p>"BOLTSYSTEMS transformed our customer service with their AI chatbot solution. We've seen a 40% reduction in support tickets and overwhelmingly positive customer feedback."</p>
-                            <div class="testimonial-author">- Sarah Johnson, CTO at TechVista</div>
-                        </li>
-                        <li class="testimonial-item">
-                            <p>"The custom AI dashboard they built allows us to access critical business insights in seconds. What used to take days of analysis is now available at our fingertips."</p>
-                            <div class="testimonial-author">- Michael Chen, Director of Operations at DataSync</div>
-                        </li>
-                        <li class="testimonial-item">
-                            <p>"Their expertise in AI integration helped us modernize our entire workflow. The ROI has been exceptional, with productivity gains across all departments."</p>
-                            <div class="testimonial-author">- Alex Rivera, CEO at Innovate Solutions</div>
-                        </li>
-                        <li class="testimonial-item">
-                            <p>"Working with BOLTSYSTEMS was seamless from start to finish. They delivered a complex AI solution on time and within budget, exceeding our expectations."</p>
-                            <div class="testimonial-author">- Emily Wilson, Product Manager at FutureTech</div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="testimonial-image">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGJ1c2luZXNzJTIwbWVldGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="Client Meeting">
-                </div>
-            </div>
-        </div>
-    </section> -->
-
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
+        <div class="contact-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
         <div class="container">
             <div class="section-header">
                 <h2>Get in Touch</h2>
             </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Let's Start a Conversation</h3>
-                    <p>Ready to transform your business with cutting-edge AI solutions? Reach out to us and discover how we can help you innovate and grow.</p>
+            <div class="contact-wrapper">
+                <div class="contact-info-column">
+                    <h3>Let's Get in <span class="highlight">Touch!</span></h3>
+                    <p class="contact-intro">
+                        Have a question or need assistance? Reach out to us via email, 
+                        phone, or the contact form. We're eager to assist you.
+                    </p>
+                    <p class="contact-highlight">Nice hearing from you!</p>
+
                     <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <p>123 Tech Boulevard<br>San Francisco, CA 94107</p>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <p>info@boltsystems.ai</p>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone-alt"></i>
-                            <p>(123) 456-7890</p>
+                        <div class="contact-address">
+                            <h4>Our Office:</h4>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p>123 Tech Boulevard<br>San Francisco, CA 94107</p>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <p>info@boltsystems.ai</p>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <p>(123) 456-7890</p>
+                            </div>
                         </div>
                     </div>
+
                     <div class="social-links contact-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <div class="contact-form">
+
+                <div class="contact-form-column">
                     <form id="emailForm">
                         <div class="form-group">
-                            <label for="name">Your Name</label>
+                            <label for="name">Full Name:</label>
                             <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Your Email</label>
+                            <label for="email">Email:</label>
                             <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="subject">Subject</label>
+                            <label for="subject">Subject:</label>
                             <input type="text" id="subject" name="subject" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">Message</label>
+                            <label for="message">Message:</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
                         <button type="submit" class="submit-btn">Send Message</button>
@@ -1396,114 +1677,143 @@
         // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            const logoBol = document.querySelector('.logo-bol');
+            const logoSystems = document.querySelector('.logo-systems');
+            
             if (window.scrollY > 50) {
+                // Scrolled state
                 header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
                 header.style.background = 'rgba(255, 255, 255, 0.95)';
+                
+                // Change navigation color
+                navLinks.forEach(link => {
+                    link.style.color = '#333333';
+                });
+                
+                // Change logo colors for scrolled state
+                logoBol.style.color = '#333333';
+                logoSystems.style.color = '#777';
             } else {
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-                header.style.background = 'var(--white)';
+                // Top state (transparent)
+                header.style.boxShadow = 'none';
+                header.style.background = 'transparent';
+                
+                // Restore navigation color
+                navLinks.forEach(link => {
+                    link.style.color = '#ffffff';
+                });
+                
+                // Restore logo colors for transparent state
+                logoBol.style.color = '#ffffff';
+                logoSystems.style.color = 'rgba(255, 255, 255, 0.8)';
             }
+        });
+        
+        // Trigger the scroll handler on page load to set initial state
+        window.addEventListener('load', function() {
+            window.dispatchEvent(new Event('scroll'));
         });
 
         // Scroll buttons for services slider - Infinite loop implementation
-const scrollLeftBtn = document.getElementById('scroll-left');
-const scrollRightBtn = document.getElementById('scroll-right');
-const servicesGrid = document.querySelector('.services-grid');
+        const scrollLeftBtn = document.getElementById('scroll-left');
+        const scrollRightBtn = document.getElementById('scroll-right');
+        const servicesGrid = document.querySelector('.services-grid');
 
-if (scrollLeftBtn && scrollRightBtn && servicesGrid) {
-    // Clone service cards for infinite loop
-    const setupInfiniteScroll = () => {
-        // Get all original service cards
-        const serviceCards = Array.from(document.querySelectorAll('.service-card'));
-        
-        // Clone each card and append to the end
-        serviceCards.forEach(card => {
-            const clone = card.cloneNode(true);
-            clone.classList.add('cloned-card');
-            servicesGrid.appendChild(clone);
-        });
-        
-        // Add clones at the beginning too
-        [...serviceCards].reverse().forEach(card => {
-            const clone = card.cloneNode(true);
-            clone.classList.add('cloned-card');
-            servicesGrid.prepend(clone);
-        });
-        
-        // Calculate width of original card set
-        const cardSetWidth = serviceCards.reduce((total, card) => {
-            return total + card.offsetWidth + 30; // card width + gap
-        }, 0);
-        
-        // Set initial scroll position to original cards
-        setTimeout(() => {
-            servicesGrid.scrollLeft = cardSetWidth;
-            servicesGrid.style.scrollBehavior = 'auto';
-            isScrolling = false;
-        }, 10);
-        
-        return { serviceCards, cardSetWidth };
-    };
-    
-    const { serviceCards, cardSetWidth } = setupInfiniteScroll();
-    const scrollAmount = 330; // 300px card + 30px gap
-    let isScrolling = false;
-    
-    // Handle infinite scroll effect
-    const handleInfiniteScroll = () => {
-        if (isScrolling) return;
-        
-        const scrollPosition = servicesGrid.scrollLeft;
-        const maxScroll = servicesGrid.scrollWidth - servicesGrid.clientWidth;
-        
-        // If at beginning clones, jump to end of original set
-        if (scrollPosition < scrollAmount) {
-            isScrolling = true;
-            servicesGrid.style.scrollBehavior = 'auto';
-            servicesGrid.scrollLeft = cardSetWidth + scrollPosition;
-            setTimeout(() => {
+        if (scrollLeftBtn && scrollRightBtn && servicesGrid) {
+            // Clone service cards for infinite loop
+            const setupInfiniteScroll = () => {
+                // Get all original service cards
+                const serviceCards = Array.from(document.querySelectorAll('.service-card'));
+                
+                // Clone each card and append to the end
+                serviceCards.forEach(card => {
+                    const clone = card.cloneNode(true);
+                    clone.classList.add('cloned-card');
+                    servicesGrid.appendChild(clone);
+                });
+                
+                // Add clones at the beginning too
+                [...serviceCards].reverse().forEach(card => {
+                    const clone = card.cloneNode(true);
+                    clone.classList.add('cloned-card');
+                    servicesGrid.prepend(clone);
+                });
+                
+                // Calculate width of original card set
+                const cardSetWidth = serviceCards.reduce((total, card) => {
+                    return total + card.offsetWidth + 30; // card width + gap
+                }, 0);
+                
+                // Set initial scroll position to original cards
+                setTimeout(() => {
+                    servicesGrid.scrollLeft = cardSetWidth;
+                    servicesGrid.style.scrollBehavior = 'auto';
+                    isScrolling = false;
+                }, 10);
+                
+                return { serviceCards, cardSetWidth };
+            };
+            
+            const { serviceCards, cardSetWidth } = setupInfiniteScroll();
+            const scrollAmount = 330; // 300px card + 30px gap
+            let isScrolling = false;
+            
+            // Handle infinite scroll effect
+            const handleInfiniteScroll = () => {
+                if (isScrolling) return;
+                
+                const scrollPosition = servicesGrid.scrollLeft;
+                const maxScroll = servicesGrid.scrollWidth - servicesGrid.clientWidth;
+                
+                // If at beginning clones, jump to end of original set
+                if (scrollPosition < scrollAmount) {
+                    isScrolling = true;
+                    servicesGrid.style.scrollBehavior = 'auto';
+                    servicesGrid.scrollLeft = cardSetWidth + scrollPosition;
+                    setTimeout(() => {
+                        servicesGrid.style.scrollBehavior = 'smooth';
+                        isScrolling = false;
+                    }, 10);
+                }
+                // If at end clones, jump to beginning of original set
+                else if (scrollPosition > maxScroll - scrollAmount) {
+                    isScrolling = true;
+                    servicesGrid.style.scrollBehavior = 'auto';
+                    servicesGrid.scrollLeft = scrollPosition - cardSetWidth;
+                    setTimeout(() => {
+                        servicesGrid.style.scrollBehavior = 'smooth';
+                        isScrolling = false;
+                    }, 10);
+                }
+            };
+            
+            servicesGrid.addEventListener('scroll', handleInfiniteScroll);
+            
+            // Button click handlers remain mostly the same
+            scrollLeftBtn.addEventListener('click', () => {
+                if (isScrolling) return;
                 servicesGrid.style.scrollBehavior = 'smooth';
-                isScrolling = false;
-            }, 10);
-        }
-        // If at end clones, jump to beginning of original set
-        else if (scrollPosition > maxScroll - scrollAmount) {
-            isScrolling = true;
-            servicesGrid.style.scrollBehavior = 'auto';
-            servicesGrid.scrollLeft = scrollPosition - cardSetWidth;
-            setTimeout(() => {
+                servicesGrid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+            
+            scrollRightBtn.addEventListener('click', () => {
+                if (isScrolling) return;
                 servicesGrid.style.scrollBehavior = 'smooth';
-                isScrolling = false;
-            }, 10);
+                servicesGrid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
+            
+            // Handle window resize
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    // Remove all clones and recreate
+                    document.querySelectorAll('.cloned-card').forEach(clone => clone.remove());
+                    setupInfiniteScroll();
+                }, 250);
+            });
         }
-    };
-    
-    servicesGrid.addEventListener('scroll', handleInfiniteScroll);
-    
-    // Button click handlers remain mostly the same
-    scrollLeftBtn.addEventListener('click', () => {
-        if (isScrolling) return;
-        servicesGrid.style.scrollBehavior = 'smooth';
-        servicesGrid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    });
-    
-    scrollRightBtn.addEventListener('click', () => {
-        if (isScrolling) return;
-        servicesGrid.style.scrollBehavior = 'smooth';
-        servicesGrid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    });
-    
-    // Handle window resize
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-            // Remove all clones and recreate
-            document.querySelectorAll('.cloned-card').forEach(clone => clone.remove());
-            setupInfiniteScroll();
-        }, 250);
-    });
-}
 
         // Form submission handling
         const emailForm = document.getElementById('emailForm');
